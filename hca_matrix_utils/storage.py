@@ -47,11 +47,11 @@ class HCAStore(MutableMapping):
     def _transform_key(self, key):
         return key.replace("/", self._separator_char)
 
-    def __init__(self, dss_client, bundle_uuid, version=None, replica="aws"):
+    def __init__(self, dss_client, bundle_uuid, bundle_version=None, replica="aws"):
 
         self._dss_client = dss_client
         self._bundle_uuid = bundle_uuid
-        self._bundle_version = version
+        self._bundle_version = bundle_version
         self._replica = replica
 
         # Read the bundle contents once since it's pretty slow. Just keep the
