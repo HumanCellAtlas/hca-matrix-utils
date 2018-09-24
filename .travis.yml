@@ -5,7 +5,5 @@ python:
   - "3.4"
 install:
   - pip install tox-travis
-  - pip install -r requirements_dev.txt
-  - pip install -e .
 script:
   - tox
