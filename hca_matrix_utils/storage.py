@@ -4,6 +4,7 @@
 from collections import MutableMapping
 import hashlib
 
+
 class HCAStore(MutableMapping):
     """
     Zarr compatible interface to expression matrices stored in a DCP analysis bundle.
@@ -106,8 +107,9 @@ class HCAStore(MutableMapping):
 
         if sha1 != expected_sha1:
             raise RuntimeError(
-                f"Corrupted read from DCP: hashes do not match for {transformed_key}: "
-                "got {sha1} but expected {expected_sha1}.")
+                "Corrupted read from DCP: hashes do not match for {transformed_key}: "
+                "got {sha1} but expected {expected_sha1}.".format(
+                    transformed_key=transformed_key, sha1=sha1, expected_sha1=expected_sha1))
 
         return raw_obj
 
